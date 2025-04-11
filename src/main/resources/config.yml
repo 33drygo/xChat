@@ -1,0 +1,4 @@
+settings:
+  symbol_for_global_msg: "@"
+  bypass:
+    - xDrygo

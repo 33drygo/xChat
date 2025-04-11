@@ -1,0 +1,12 @@
+prefix: "#ffcc5c&lx&r&lChat &8»&r"
+
+command:
+  reload:
+    error: "%prefix% #FF0000🚫 Failed on plugin reload."
+    success: "%prefix% #a0ff72✔ Plugin reloaded successfully."
+
+chat:
+  global: "%luckperms_prefix% %player% &8> &r%message%"
+  group: "&8[&4&lT&r&8] &r%luckperms_prefix% %player% &8> &r%message%"
+
+# #FF0000🚫 #ff7272❌ #fff18d📰 #a0ff72✔

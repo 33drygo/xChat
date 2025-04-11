@@ -1,0 +1,11 @@
+name: xChat
+main: org.eldrygo.XChat.XChat
+version: 0.0.15
+authors: [Drygo]
+api-version: 1.20
+commands:
+  xchat:
+    description: "xChat main command."
+permissions:
+  xchat.reload:
+    default: false
