@@ -1,31 +1,31 @@
-package org.eldrygo.XChat.Managers;
+package dev.drygo.XChat.Managers;
 
+import dev.drygo.XChat.XChat;
+import dev.drygo.XChat.Utils.ChatUtils;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.eldrygo.XChat.XChat;
 
 import java.io.File;
 
 public class ConfigManager {
-    private final XChat plugin;
-    public YamlConfiguration messagesConfig;
+    private static XChat plugin;
+    private static FileConfiguration messagesConfig;
 
-    public ConfigManager(XChat plugin) {
-        this.plugin = plugin;
+    public static void init(XChat plugin) {
+        ConfigManager.plugin = plugin;
     }
 
-    public void reloadConfig() {
+    public static void loadConfig() {
         try {
-            FileConfiguration config = plugin.getConfig();
+            plugin.saveDefaultConfig();
             plugin.reloadConfig();
-            plugin.config = plugin.getConfig();
-            plugin.getLogger().info("✅ The config.yml file has been loaded successfully.");
+            plugin.getLogger().info("✅ The config.yml file successfully loaded.");
         } catch (Exception e) {
-            plugin.getLogger().severe("❌ Failed to reload plugin configuration due to an unexpected error: " + e.getMessage());
+            plugin.getLogger().severe("❌ Failed on loading config.yml: " + e.getMessage());
             e.printStackTrace();
         }
     }
-    public void reloadMessages() {
+    public static void reloadMessages() {
         try {
             File messagesFile = new File(plugin.getDataFolder(), "messages.yml");
             if (!messagesFile.exists()) {
@@ -34,18 +34,18 @@ public class ConfigManager {
             } else {
                 plugin.getLogger().info("✅ The messages.yml file has been loaded successfully.");
             }
+
             messagesConfig = YamlConfiguration.loadConfiguration(messagesFile);
-            plugin.prefix = "#9ae5ff&lx&r&lUtils &8»&r &cDefault Prefix &8»&r";
+            plugin.prefix = ChatUtils.formatColor("#cccccc&lSR#577588&lX#FFD463&lPDR &cDefault Prefix &8»&r");
         } catch (Exception e) {
             plugin.getLogger().severe("❌ Failed to load messages configuration due to an unexpected error: " + e.getMessage());
             e.printStackTrace();
         }
     }
-    public void setPrefix(String prefix) {
-        plugin.prefix = prefix;
+
+    public static String getPrefix() { return plugin.prefix; }
+    public static void setPrefix(String prefix) { plugin.prefix = prefix; }
+    public static FileConfiguration getMessageConfig() {
+        return messagesConfig;
     }
-    public String getPrefix() {
-        return plugin.prefix;
-    }
-    public FileConfiguration getMessageConfig() { return messagesConfig; }
 }

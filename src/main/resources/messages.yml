@@ -5,8 +5,27 @@ command:
     error: "%prefix% #FF0000🚫 Failed on plugin reload."
     success: "%prefix% #a0ff72✔ Plugin reloaded successfully."
 
+  no_permission: "%prefix% #FF0000🚫 You don't have permission to execute this command."
+
+  usage: "%prefix% #FF0000🚫 Need to specify a sub-command."
+
 chat:
   global: "%luckperms_prefix% %player% &8> &r%message%"
   group: "&8[&4&lT&r&8] &r%luckperms_prefix% %player% &8> &r%message%"
 
-# #FF0000🚫 #ff7272❌ #fff18d📰 #a0ff72✔
+chat_blocker:
+  disabled_message: "#FF0000🚫 Chat is currently disabled."
+  status:
+    enabled: "#a0ff72&lENABLED"
+    disabled: "#FF0000&lDISABLED"
+  commands:
+    toggle:
+      enabled: "%prefix% #a0ff72✔ Chat has been &aenabled&r!"
+      disabled: "%prefix% #FF0000🚫 Chat has been &cdisabled&r!"
+    enabled: "%prefix% #a0ff72✔ Chat has been &aenabled&r!"
+    disabled: "%prefix% #FF0000🚫 Chat has been &cdisabled&r!"
+    already_enabled: "%prefix% #fff18d📰 Chat is already enabled!"
+    already_disabled: "%prefix% #fff18d📰 Chat is already disabled!"
+    status: "%prefix% #fff18d📰 Chat Status: %status%"
+    clear:
+      success: "%prefix% #a0ff72✔ Chat has been cleared by &e%player%&r!"

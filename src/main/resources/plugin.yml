@@ -1,11 +1,38 @@
 name: xChat
-main: org.eldrygo.XChat.XChat
-version: 0.0.15
+main: dev.drygo.XChat.XChat
+version: 0.0.20
 authors: [Drygo]
 api-version: 1.20
+depend: [LuckPerms]
+
 commands:
   xchat:
     description: "xChat main command."
+    usage: "/xchat <reload|toggle|on|off|status|clear>"
+    aliases: [xc]
+
 permissions:
   xchat.reload:
+    description: "Reload xChat configuration"
+    default: false
+  xchat.blocker.toggle:
+    description: "Toggle chat blocker on/off"
+    default: false
+  xchat.blocker.status:
+    description: "Check chat blocker status"
+    default: false
+  xchat.blocker.clear:
+    description: "Clear chat for all players"
+    default: false
+  xchat.blocker.bypass:
+    description: "Bypass chat blocker (can chat even when disabled)"
+    default: false
+  xchat.blocker.bypass.clear:
+    description: "Bypass chat clear command (won't be affected by /xchat clear)"
+    default: false
+  xchat.formatcolor:
+    description: "Use color codes in chat messages"
+    default: false
+  xchat.bypass:
+    description: "Bypass group chat and always use global chat"
     default: false
